@@ -1,5 +1,5 @@
 
-Script para recortar trozos sin perdida de videos. 
+Script para recortar trozos de un video sin que haya perdida de información.
 
 **machete**
 

@@ -4,13 +4,12 @@ from typing import List
 
 # TODO: ¿que pasa si un video durá menos de una hora? o ¿menor de un minuto?
 
-def get_times(rages:List[str])->dict:
+def get_times(ranges:List[str])->dict:
     """
-    Devuelve diccionario que tiene una lista de rangos bien formateados y otra con rangos
-    que no se pudieron formatear. 
+    Devuelve diccionario que tiene una lista de rangos bien formateados y otra con rangos que no se pudieron formatear. 
     """
     document={"good":[],"bad":[]}
-    for range in rages:
+    for range in ranges:
         try:
             if range.casefold()=="exit":
                 exit()
@@ -42,12 +41,12 @@ class Machete:
             range= input("range>>>")
             self.split(range.split())
     
-    def split(self, rages:list)->None: 
+    def split(self, ranges:list)->None: 
         """
-        rages: es una lista de rango de tiempos.
+        ranges: es una lista de rango de tiempos.
         rango de tiempo es un string que tiene la hora de inicio y finalización del trozo a recortar, ejemplo: 00:30:00-00:35:40
         """
-        ranges= get_times(rages)
+        ranges= get_times(ranges)
         for range in ranges["good"]: 
             time= range    
             start=time.split("-")[0]
@@ -73,5 +72,7 @@ class Machete:
         """
         if os.path.exists(path):
             return os.path.abspath(path)
+        print("La ruta del video parece que no existe")
+        exit()
         
     
